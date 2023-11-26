@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
 
-from _operations.balancer import Balancer
-from _operations.molecule import Molecule
+from src.chemiq_MYUSERNAMEHERE._operations.balancer import Balancer
+from src.chemiq_MYUSERNAMEHERE._operations.molecule import Molecule
 
 
 class TestBalancer(unittest.TestCase):

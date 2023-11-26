@@ -1,5 +1,5 @@
 import unittest
-from _operations.gas_laws import GasLaws
+from src.chemiq_MYUSERNAMEHERE._operations.gas_laws import GasLaws
 
 
 class GasLawsTest(unittest.TestCase):

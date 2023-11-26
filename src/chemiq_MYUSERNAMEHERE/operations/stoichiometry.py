@@ -1,8 +1,8 @@
 import numpy as np
 
 from numpy import ndarray
-from _operations.calculator import Calculator
-from _operations.molecule import Molecule
+from src.chemiq_MYUSERNAMEHERE._operations.calculator import Calculator
+from src.chemiq_MYUSERNAMEHERE._operations.molecule import Molecule
 
 
 def limiting_reactant_moles_coefficients(reactants: ndarray[str], coefficients: ndarray[str], moles: ndarray[str]):

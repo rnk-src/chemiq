@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import ndarray
-from _operations.calculator import Calculator
-from _operations.gas_laws import GasLaws
+from src.chemiq_MYUSERNAMEHERE._operations.calculator import Calculator
+from src.chemiq_MYUSERNAMEHERE._operations.gas_laws import GasLaws
 
 
 def boyle(p1=None, p2=None, v1=None, v2=None):
