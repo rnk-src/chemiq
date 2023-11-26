@@ -1,0 +1,6 @@
+chemparse
+sympy
+numpy
+flask
+pytest
+scipy
