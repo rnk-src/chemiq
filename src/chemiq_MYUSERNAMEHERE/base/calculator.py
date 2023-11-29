@@ -1,10 +1,14 @@
+"""
+The Calculator class contains functions to perform all general calculations this package offers.
+"""
+
 from numpy import ndarray
 
-from element import Element
-from molecule import Molecule
-from balancer import Balancer
-from stoichiometry import Stoichiometry
-from gas_laws import GasLaws
+from src.chemiq_MYUSERNAMEHERE.base.element import Element
+from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
+from src.chemiq_MYUSERNAMEHERE.base.balancer import Balancer
+from src.chemiq_MYUSERNAMEHERE.base.stoichiometry import Stoichiometry
+from src.chemiq_MYUSERNAMEHERE.base.gas_laws import GasLaws
 
 
 class NotSameSizeException(Exception):
@@ -16,8 +20,8 @@ class NotSameSizeException(Exception):
 class Calculator:
     """
     The Calculator class is to be used in order to perform various chemical calculations.
-    This includes different topics of chemistry calculation, such as balancing chemical equations, performing
-    stoichiometry, and performing gas laws calculations.
+    This includes different topics of chemistry calculation, such as balancing chemical equations,
+    performing stoichiometry, and performing gas laws calculations.
     """
 
     @classmethod
@@ -50,7 +54,8 @@ class Calculator:
         return molecule.get_molar_mass()
 
     @classmethod
-    def balance_equation(cls, reactants: ndarray[Molecule], products: ndarray[Molecule]) -> ndarray[float]:
+    def balance_equation(cls, reactants: ndarray[Molecule],
+                         products: ndarray[Molecule]) -> ndarray[float]:
         """
         Returns the coefficients of a balanced equation given reactants and products.
         :param reactants: NumPy array containing the reactant Molecules.
@@ -109,7 +114,8 @@ class Calculator:
         )
 
     @classmethod
-    def convert_grams_to_moles(cls, reactants: ndarray[Molecule], grams: ndarray[float]) -> ndarray[float]:
+    def convert_grams_to_moles(cls, reactants: ndarray[Molecule],
+                               grams: ndarray[float]) -> ndarray[float]:
         """
         Convert a NumPy array of reactants from grams to moles.
         :param reactants: NumPy array of reactant Molecules.
@@ -117,17 +123,19 @@ class Calculator:
         :return: NumPy array of reactant amounts in moles.
         """
         return Stoichiometry.convert_grams_to_moles(
-            reactants=reactants,
+            molecules=reactants,
             grams=grams
         )
 
     @classmethod
-    def limiting_reactant_moles(cls, reactants: ndarray[Molecule], reactant_coefficients: ndarray[float],
+    def limiting_reactant_moles(cls, reactants: ndarray[Molecule],
+                                reactant_coefficients: ndarray[float],
                                 moles: ndarray[float]) -> Molecule:
         """
         Returns the limiting reactant in a chemical equation.
         :param reactants: Reactant Molecules in a chemical equation.
-        :param reactant_coefficients: NumPy array of reactant coefficients in the same size as the "reactants" array.
+        :param reactant_coefficients: NumPy array of reactant coefficients in the same size
+         as the "reactants" array.
         :param moles: NumPy array of moles in the same size as the "reactants" array.
         :return: The limiting reactant Molecule.
         """
@@ -138,7 +146,8 @@ class Calculator:
         )
 
     @classmethod
-    def limiting_reactant_moles_without_coefficients(cls, reactants: ndarray[Molecule], products: ndarray[Molecule],
+    def limiting_reactant_moles_without_coefficients(cls, reactants: ndarray[Molecule],
+                                                     products: ndarray[Molecule],
                                                      moles: ndarray[float]) -> Molecule:
         """
         Returns the limiting reactant in a chemical equation.
@@ -154,12 +163,14 @@ class Calculator:
         )
 
     @classmethod
-    def limiting_reactant_grams(cls, reactants: ndarray[Molecule], reactant_coefficients: ndarray[float],
+    def limiting_reactant_grams(cls, reactants: ndarray[Molecule],
+                                reactant_coefficients: ndarray[float],
                                 grams: ndarray[float]) -> Molecule:
         """
         Returns the limiting reactant in a chemical equation.
         :param reactants: Reactant Molecules in a chemical equation.
-        :param reactant_coefficients: NumPy array of reactant coefficients in the same size as the "reactants" array.
+        :param reactant_coefficients: NumPy array of reactant coefficients in the same size as the
+         "reactants" array.
         :param grams: NumPy array of grams in the same size as the "reactants" array.
         :return:
         """
@@ -170,7 +181,8 @@ class Calculator:
         )
 
     @classmethod
-    def limiting_reactant_grams_without_coefficients(cls, reactants: ndarray[Molecule], products: ndarray[Molecule],
+    def limiting_reactant_grams_without_coefficients(cls, reactants: ndarray[Molecule],
+                                                     products: ndarray[Molecule],
                                                      grams: ndarray[float]):
         """
         Returns the limiting reactant in a chemical equation.

@@ -1,11 +1,14 @@
 import numpy as np
 
 from numpy import ndarray
-from src.chemiq_MYUSERNAMEHERE._operations.calculator import Calculator
-from src.chemiq_MYUSERNAMEHERE._operations.molecule import Molecule
+from src.chemiq_MYUSERNAMEHERE.base.calculator import Calculator
+from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
 
 
-def limiting_reactant_moles_coefficients(reactants: ndarray[str], coefficients: ndarray[str], moles: ndarray[str]):
+def limiting_reactant_moles_coefficients(
+        reactants: ndarray[str],
+        coefficients: ndarray[str],
+        moles: ndarray[str]):
     coefficients: ndarray[int] = np.array(coefficients)
     reactants: ndarray[Molecule] = np.array([Molecule.parse(reactant) for reactant in reactants])
     moles: ndarray[float] = np.array(moles).astype(dtype=float)
@@ -22,7 +25,10 @@ def limiting_reactant_moles_coefficients(reactants: ndarray[str], coefficients: 
     }
 
 
-def limiting_reactant_grams_coefficients(reactants: ndarray[str], coefficients: ndarray[str], grams: ndarray[str]):
+def limiting_reactant_grams_coefficients(
+        reactants: ndarray[str],
+        coefficients: ndarray[str],
+        grams: ndarray[str]):
     coefficients: ndarray[int] = np.array(coefficients)
     reactants: ndarray[Molecule] = np.array([Molecule.parse(reactant) for reactant in reactants])
     grams: ndarray[float] = np.array(grams).astype(dtype=float)
@@ -40,7 +46,10 @@ def limiting_reactant_grams_coefficients(reactants: ndarray[str], coefficients: 
     }
 
 
-def limiting_reactant_moles_no_coefficients(reactants: ndarray[str], products: ndarray[str], moles: ndarray[str]):
+def limiting_reactant_moles_no_coefficients(
+        reactants: ndarray[str],
+        products: ndarray[str],
+        moles: ndarray[str]):
     reactants: ndarray[Molecule] = np.array([Molecule.parse(reactant) for reactant in reactants])
     products: ndarray[Molecule] = np.array([Molecule.parse(product) for product in products])
     moles: ndarray[float] = np.array(moles).astype(dtype=float)
@@ -58,7 +67,10 @@ def limiting_reactant_moles_no_coefficients(reactants: ndarray[str], products: n
     }
 
 
-def limiting_reactant_grams_no_coefficients(reactants: ndarray[str], products: ndarray[str], grams: ndarray[str]):
+def limiting_reactant_grams_no_coefficients(
+        reactants: ndarray[str],
+        products: ndarray[str],
+        grams: ndarray[str]):
     reactants: ndarray[Molecule] = np.array([Molecule.parse(reactant) for reactant in reactants])
     products: ndarray[Molecule] = np.array([Molecule.parse(product) for product in products])
     grams: ndarray[float] = np.array(grams).astype(dtype=float)

@@ -1,23 +1,29 @@
+"""
+This module contains the method to balance chemical equations.
+"""
+
+from fractions import Fraction
+
 import numpy as np
 
 from numpy import ndarray
-from fractions import Fraction
-from element import Element
-from molecule import Molecule
+from src.chemiq_MYUSERNAMEHERE.base.element import Element
+from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
 
 
-class Balancer:
+class Balancer:  # pylint: disable=too-few-public-methods
     """
     The Balancer class is used in order to balance chemical equations.
-    Balancer is intended to be used in solely static contexts and does not require the creation of a Balancer object
-    in order to use the balance method.
+    Balancer is intended to be used in solely static contexts and does not require the creation
+    of a Balancer object in order to use the balance method.
     """
 
     @classmethod
     def balance_equation(cls, reactants_molecules: ndarray[Molecule],
                          products_molecules: ndarray[Molecule]) -> ndarray[int]:
         """
-        Balances a chemical equation by returning the correct coefficients for the molecules in the reaction.
+        Balances a chemical equation by returning the correct coefficients for the molecules in the
+        reaction.
         All the corresponding coefficients are in the same order as the molecules passed in.
 
         :param reactants_molecules: A ndarray of reactants in Molecules.
@@ -26,8 +32,12 @@ class Balancer:
          with the coefficient of reactants first.
         """
 
-        element_dictionary = dict()
-        elements_in_reaction = Balancer._get_elements_in_reaction(reactants_molecules, products_molecules)
+        element_dictionary = {}
+
+        elements_in_reaction = Balancer._get_elements_in_reaction(
+            reactants_molecules,
+            products_molecules
+        )
 
         Balancer._add_to_element_dictionary(
             reactants_molecules,
@@ -55,12 +65,15 @@ class Balancer:
 
     @classmethod
     def _add_to_element_dictionary(cls, molecules: ndarray[Molecule], is_reactant: bool,
-                                   element_dictionary: dict[str, ndarray[int]], elements_in_reaction: set[Element]):
+                                   element_dictionary: dict[str, ndarray[int]],
+                                   elements_in_reaction: set[Element]):
         """
-        Adds elements to the element dictionary along with a ndarray of their count for each of the molecules.
+        Adds elements to the element dictionary along with a ndarray of their count for each
+        of the molecules.
 
         :param molecules: A ndarray of the molecule(s) to be processed.
-        :param is_reactant: If the molecules passed in are reactants, set to True, else if products, set to False.
+        :param is_reactant: If the molecules passed in are reactants, set to True, else if products,
+        set to False.
         :param element_dictionary: An empty dictionary.
         :param elements_in_reaction: Unique elements present in the reaction.
         :return: None
@@ -69,13 +82,15 @@ class Balancer:
         multiplier = 1 if is_reactant else -1
 
         for molecule in molecules:
-            Balancer._get_element_counts(molecule, element_dictionary, multiplier, elements_in_reaction)
+            Balancer._get_element_counts(molecule, element_dictionary,
+                                         multiplier, elements_in_reaction)
 
     @classmethod
-    def _get_element_counts(cls, molecule: Molecule, element_dictionary: dict[str, ndarray[int]], multiplier: int,
-                            elements_in_reaction: set[Element]):
+    def _get_element_counts(cls, molecule: Molecule, element_dictionary: dict[str, ndarray[int]],
+                            multiplier: int, elements_in_reaction: set[Element]):
         """
-        Updates a given element dictionary with coefficient values corresponding to elements and molecules in a chemical
+        Updates a given element dictionary with coefficient values corresponding to elements and
+        molecules in a chemical
         equation.
 
         :param molecule: The Molecule of which elements are to be counted.
@@ -90,10 +105,14 @@ class Balancer:
             if element_dictionary.get(element_symbol, None) is None:
                 element_dictionary[element_symbol] = np.array([])
             element_array = element_dictionary[element_symbol]
-            element_dictionary[element_symbol] = np.append(arr=element_array, values=np.array([count]))
+            element_dictionary[element_symbol] = np.append(
+                arr=element_array,
+                values=np.array([count])
+            )
 
     @classmethod
-    def _get_elements_in_reaction(cls, reactants: ndarray[Molecule], products: ndarray[Molecule]) -> set[Element]:
+    def _get_elements_in_reaction(cls, reactants: ndarray[Molecule],
+                                  products: ndarray[Molecule]) -> set[Element]:
         """
         :param reactants: A ndarray of the reactant Molecules in the reaction.
         :param products: A ndarray of the product Molecules in the reaction.
