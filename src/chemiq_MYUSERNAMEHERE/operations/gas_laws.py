@@ -1,6 +1,9 @@
 """
 Offers methods to aid with Gas Law calculations.
 """
+
+from typing import Dict
+
 from numpy import ndarray
 import numpy as np
 
@@ -18,7 +21,7 @@ def boyle(p1=None, p2=None, v1=None, v2=None) -> float:  # pylint: disable=inval
     """
     inputs: ndarray[float] = np.array([p1, p2, v1, v2])
     names: ndarray[str] = np.array(['P1', 'P2', 'V1', 'V2'])
-    arguments: dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
+    arguments: Dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
     return GasLaws.solve_boyle(arguments=arguments)
 
 
@@ -33,7 +36,7 @@ def charles(v1=None, v2=None, t1=None, t2=None) -> float:  # pylint: disable=inv
     """
     inputs: ndarray[float] = np.array([v1, v2, t1, t2])
     names: ndarray[str] = np.array(['V1', 'V2', 'T1', 'T2'])
-    arguments: dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
+    arguments: Dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
     return GasLaws.solve_charles(arguments=arguments)
 
 
@@ -48,7 +51,7 @@ def gay_lussac(p1=None, p2=None, t1=None, t2=None) -> float:  # pylint: disable=
     """
     inputs: ndarray[float] = np.array([p1, p2, t1, t2])
     names: ndarray[str] = np.array(['P1', 'P2', 'T1', 'T2'])
-    arguments: dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
+    arguments: Dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
     return GasLaws.solve_gay_lussac(arguments=arguments)
 
 
@@ -67,7 +70,7 @@ def combined(p1=None, p2=None, v1=None, v2=None, t1=None, t2=None) -> float:
     """
     inputs: ndarray[float] = np.array([p1, p2, v1, v2, t1, t2])
     names: ndarray[str] = np.array(['P1', 'P2', 'V1', 'V2', 'T1', 'T2'])
-    arguments: dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
+    arguments: Dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
     return GasLaws.solve_combined_gas_law(arguments=arguments)
 
 
@@ -82,5 +85,5 @@ def ideal(p=None, v=None, n=None, r=None, t=None) -> float:  # pylint: disable=i
     """
     inputs: ndarray[float] = np.array([p, v, n, r, t])
     names: ndarray[str] = np.array(['P', 'V', 'N', 'R', 'T'])
-    arguments: dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
+    arguments: Dict[str, float] = GasLaws.update_gas_law_arguments(inputs, names)
     return GasLaws.solve_ideal_gas_law(arguments=arguments)

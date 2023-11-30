@@ -4,6 +4,7 @@ This module contains Element class.
 
 import json
 import os
+from typing import Dict
 
 
 class Element:
@@ -21,7 +22,7 @@ class Element:
         current_dir = os.path.dirname(__file__)
         elements_data_file_path = os.path.join(current_dir, '../_element_data/elements.json')
         with open(file=elements_data_file_path, mode='r', encoding='utf-8') as elements_data_file:
-            data: dict = json.load(elements_data_file)
+            data: Dict = json.load(elements_data_file)
             for element_name, element_data in data.items():
                 element_data['name'] = element_name
                 cls.elements[element_data['symbol']] = Element(element_data)
@@ -48,8 +49,8 @@ class Element:
             return cls.elements[element_symbol]
         raise ValueError(f"Unknown element: {element_symbol}")
 
-    def __init__(self, element_data: dict):
-        self.data = element_data
+    def __init__(self, element_data: Dict):
+        self.data: Dict = element_data
         self.symbol: str = element_data['symbol']
         self.atomic_mass: int = element_data['atomic_mass']
 

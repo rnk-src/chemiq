@@ -3,6 +3,7 @@ This module contains the method to balance chemical equations.
 """
 
 from fractions import Fraction
+from typing import Dict
 
 import numpy as np
 
@@ -65,7 +66,7 @@ class Balancer:  # pylint: disable=too-few-public-methods
 
     @classmethod
     def _add_to_element_dictionary(cls, molecules: ndarray[Molecule], is_reactant: bool,
-                                   element_dictionary: dict[str, ndarray[int]],
+                                   element_dictionary: Dict[str, ndarray[int]],
                                    elements_in_reaction: set[Element]):
         """
         Adds elements to the element dictionary along with a ndarray of their count for each
@@ -86,7 +87,7 @@ class Balancer:  # pylint: disable=too-few-public-methods
                                          multiplier, elements_in_reaction)
 
     @classmethod
-    def _get_element_counts(cls, molecule: Molecule, element_dictionary: dict[str, ndarray[int]],
+    def _get_element_counts(cls, molecule: Molecule, element_dictionary: Dict[str, ndarray[int]],
                             multiplier: int, elements_in_reaction: set[Element]):
         """
         Updates a given element dictionary with coefficient values corresponding to elements and

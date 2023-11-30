@@ -2,6 +2,8 @@
 This module contains the Molecule class to aid with molecule-related operations.
 """
 
+from typing import Dict
+
 import chemparse
 from src.chemiq_MYUSERNAMEHERE.base.element import Element
 
@@ -22,7 +24,7 @@ class Molecule:
         element_counts = chemparse.parse_formula(formula)
         return Molecule(element_counts)
 
-    def __init__(self, element_counts: dict[str, int]):
+    def __init__(self, element_counts: Dict[str, int]):
         self.element_counts = element_counts
 
     def has_element(self, element: Element) -> bool:
@@ -79,7 +81,7 @@ class Molecule:
 
         return total_mass
 
-    def get_particles(self) -> dict[str, int]:
+    def get_particles(self) -> Dict[str, int]:
         """
         Returns the particles (electrons, neutrons, protons) and their
          respective counts in the molecule.

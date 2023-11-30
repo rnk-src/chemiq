@@ -2,6 +2,8 @@
 This module contains the Gas Laws operations.
 """
 
+from typing import Dict
+
 import numpy as np
 
 from sympy.core import Symbol
@@ -15,7 +17,7 @@ class GasLaws:
     """
     @classmethod
     def update_gas_law_arguments(cls, inputs: ndarray[float],
-                                 names: ndarray[str]) -> dict[str, float]:
+                                 names: ndarray[str]) -> Dict[str, float]:
         """
         Prepares arguments to be passed to the gas law functions.
 
@@ -110,8 +112,9 @@ class GasLaws:
             raise ValueError("Expected 5 out of 6 arguments.")
         missing = missing[0]
         (first_pressure, second_pressure, first_temperature, second_temperature,
-         first_volume, second_volume) = [kwargs.get(letter, missing)
-										 for letter in ['P1', 'P2', 'T1', 'T2', 'V1', 'V2']]
+         first_volume, second_volume) = [
+            kwargs.get(letter, missing) for letter in ['P1', 'P2', 'T1', 'T2', 'V1', 'V2']
+        ]
         return float(
             solve(
                 ((first_pressure * first_volume)/first_temperature -
