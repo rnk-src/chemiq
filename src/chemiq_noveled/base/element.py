@@ -20,7 +20,7 @@ class Element:
         Loads the data of the elements from the elements.json file.
         """
         current_dir = os.path.dirname(__file__)
-        elements_data_file_path = os.path.join(current_dir, '../_element_data/elements.json')
+        elements_data_file_path = os.path.join(current_dir, '../_data/elements.json')
         with open(file=elements_data_file_path, mode='r', encoding='utf-8') as elements_data_file:
             data: Dict = json.load(elements_data_file)
             for element_name, element_data in data.items():
