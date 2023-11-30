@@ -1,8 +1,8 @@
 import numpy as np
 
 from numpy import ndarray
-from src.chemiq_MYUSERNAMEHERE.base.calculator import Calculator
-from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
+from src.chemiq_noveled.base.calculator import Calculator
+from src.chemiq_noveled.base.molecule import Molecule
 
 
 def limiting_reactant_moles_coefficients(

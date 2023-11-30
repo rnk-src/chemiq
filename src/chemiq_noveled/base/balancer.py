@@ -3,13 +3,13 @@ This module contains the method to balance chemical equations.
 """
 
 from fractions import Fraction
-from typing import Dict
+from typing import Dict, Set
 
 import numpy as np
 
 from numpy import ndarray
-from src.chemiq_MYUSERNAMEHERE.base.element import Element
-from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
+from src.chemiq_noveled.base.element import Element
+from src.chemiq_noveled.base.molecule import Molecule
 
 
 class Balancer:  # pylint: disable=too-few-public-methods
@@ -67,7 +67,7 @@ class Balancer:  # pylint: disable=too-few-public-methods
     @classmethod
     def _add_to_element_dictionary(cls, molecules: ndarray[Molecule], is_reactant: bool,
                                    element_dictionary: Dict[str, ndarray[int]],
-                                   elements_in_reaction: set[Element]):
+                                   elements_in_reaction: Set[Element]):
         """
         Adds elements to the element dictionary along with a ndarray of their count for each
         of the molecules.
@@ -88,7 +88,7 @@ class Balancer:  # pylint: disable=too-few-public-methods
 
     @classmethod
     def _get_element_counts(cls, molecule: Molecule, element_dictionary: Dict[str, ndarray[int]],
-                            multiplier: int, elements_in_reaction: set[Element]):
+                            multiplier: int, elements_in_reaction: Set[Element]):
         """
         Updates a given element dictionary with coefficient values corresponding to elements and
         molecules in a chemical
@@ -113,7 +113,7 @@ class Balancer:  # pylint: disable=too-few-public-methods
 
     @classmethod
     def _get_elements_in_reaction(cls, reactants: ndarray[Molecule],
-                                  products: ndarray[Molecule]) -> set[Element]:
+                                  products: ndarray[Molecule]) -> Set[Element]:
         """
         :param reactants: A ndarray of the reactant Molecules in the reaction.
         :param products: A ndarray of the product Molecules in the reaction.

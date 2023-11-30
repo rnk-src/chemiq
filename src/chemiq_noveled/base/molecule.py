@@ -2,10 +2,10 @@
 This module contains the Molecule class to aid with molecule-related operations.
 """
 
-from typing import Dict
+from typing import Dict, Set
 
 import chemparse
-from src.chemiq_MYUSERNAMEHERE.base.element import Element
+from src.chemiq_noveled.base.element import Element
 
 
 class Molecule:
@@ -56,7 +56,7 @@ class Molecule:
         """
         return self.element_counts[element.symbol]
 
-    def get_all_elements(self) -> set[Element]:
+    def get_all_elements(self) -> Set[Element]:
         """
         Returns all the elements in the molecule.
 

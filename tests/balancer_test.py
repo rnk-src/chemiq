@@ -5,8 +5,8 @@ This module contains tests for the Balancer class.
 import unittest
 import numpy as np
 
-from src.chemiq_MYUSERNAMEHERE.base.balancer import Balancer
-from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
+from src.chemiq_noveled.base.balancer import Balancer
+from src.chemiq_noveled.base.molecule import Molecule
 
 
 class TestBalancer(unittest.TestCase):

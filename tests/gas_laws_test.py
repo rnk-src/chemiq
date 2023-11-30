@@ -5,7 +5,7 @@ This module contains unit tests for the gas_laws.py module.
 
 import unittest
 
-from src.chemiq_MYUSERNAMEHERE.base.gas_laws import GasLaws
+from src.chemiq_noveled.base.gas_laws import GasLaws
 
 
 class GasLawsTest(unittest.TestCase):

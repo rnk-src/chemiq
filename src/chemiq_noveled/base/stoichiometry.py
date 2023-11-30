@@ -4,8 +4,8 @@ This module contains the Stoichiometry class, aiding in stoichiometry calculatio
 from numpy import ndarray
 import numpy as np
 
-from src.chemiq_MYUSERNAMEHERE.base.molecule import Molecule
-from src.chemiq_MYUSERNAMEHERE.base.balancer import Balancer
+from src.chemiq_noveled.base.molecule import Molecule
+from src.chemiq_noveled.base.balancer import Balancer
 
 
 class NotSameSizeException(Exception):

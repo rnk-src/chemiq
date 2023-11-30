@@ -7,7 +7,7 @@ from typing import Dict
 from numpy import ndarray
 import numpy as np
 
-from src.chemiq_MYUSERNAMEHERE.base.gas_laws import GasLaws
+from src.chemiq_noveled.base.gas_laws import GasLaws
 
 
 def boyle(p1=None, p2=None, v1=None, v2=None) -> float:  # pylint: disable=invalid-name
